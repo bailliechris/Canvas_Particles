@@ -41,23 +41,23 @@ class CanvasManager{
     inputListeners() {
         document.addEventListener('keyup', (event) => {
             if (event.key === " ") {
-                this.reviveAllDeadParticles();
+                this.reviveAllDeadParticles(this.canvas.width/2, this.canvas.height-10);
             }
         })
 
         document.addEventListener('touchstart', (event) => {
             if (event.touches.length > 0) {
-                this.reviveAllDeadParticles();
+                this.reviveAllDeadParticles(event.touches[0].pageX, event.touches[0].pageY);
             }
         })
     }
 
-    reviveAllDeadParticles(){
+    reviveAllDeadParticles(x, y){
         this.particleList.forEach((particle) => {
             if(particle.life<=0) {
                 particle.revive(                
-                    this.canvas.width/2,
-                    this.canvas.height-10,
+                    x,
+                    y,
                     this.random(-50,50),
                     this.random(-8, -50),
                     {x:this.random(2,10), y:this.random(2,10)},
