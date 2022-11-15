@@ -16,3 +16,18 @@ footer {
     justify-content: center;
     margin-top: 1em;
 }
+
+input[button] {
+    width: 2em;
+    height: 1em;
+    border-radius: 2px;
+    color: white;
+}
+
+#fewer {
+    background-color: crimson;
+}
+
+#more {
+    background-color: darkgreen;
+}

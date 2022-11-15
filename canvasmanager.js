@@ -56,6 +56,26 @@ class CanvasManager{
         document.getElementById("particleslider").addEventListener('change', (event) => {
             this.adjustAmountOfParticles(event.target.value);
         })
+
+        document.getElementById("fewer").addEventListener('click', () => {
+            let current = document.getElementById("particleslider").value;
+
+            current -= 50;
+
+            if (current >= 0) {
+                document.getElementById("particleslider").value = current;
+            }
+        })
+
+        document.getElementById("more").addEventListener('click', () => {
+            let current = document.getElementById("particleslider").value;
+
+            current += 50;
+
+            if (current <= 1000) {
+                document.getElementById("particleslider").value = current;
+            }
+        })
     }
 
     reviveAllDeadParticles(x, y){
