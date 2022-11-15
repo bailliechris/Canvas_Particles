@@ -33,8 +33,8 @@ class CanvasManager{
                 this.random(-50,50),
                 this.random(-8, -50),
                 {x:this.random(2,10), y:this.random(2,10)},
-                this.random(25,100),
-                [210, 60, 80, 1]
+                0,
+                [...this.colorList[this.colorListIndex], 0]
             );
             this.particleList.push(p);
         }
@@ -51,6 +51,10 @@ class CanvasManager{
             if (event.touches.length > 0) {
                 this.reviveAllDeadParticles(event.touches[0].pageX, event.touches[0].pageY);
             }
+        })
+
+        document.getElementById("particleslider").addEventListener('change', (event) => {
+            this.amount = event.target.value;
         })
     }
 
@@ -83,5 +87,15 @@ class CanvasManager{
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+    }
+
+    adjustAmountOfParticles(amount) {
+        if (amount <= this.particleList.length) {
+            this.particleList = this.particleList.slice(0, amount);
+        } else {
+            const difference = amount - this.particleList.length;
+
+            this.createParticles(difference);
+        }
     }
 }
