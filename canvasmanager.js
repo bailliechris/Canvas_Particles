@@ -15,7 +15,7 @@ class CanvasManager{
             this.canvas.context.shadowOffsetX = 0;
             this.canvas.context.shadowOffsetY = 0;
             this.canvas.context.shadowColor = "black";
-            this.canvas.draw("Press Space");
+            this.canvas.draw("Press Space or Tap");
     
             this.particleList.forEach((particle) => {
                 particle.move(0.5, 5, this.canvas.width, this.canvas.height);
@@ -54,7 +54,7 @@ class CanvasManager{
         })
 
         document.getElementById("particleslider").addEventListener('change', (event) => {
-            this.amount = event.target.value;
+            this.adjustAmountOfParticles(event.target.value);
         })
     }
 
