@@ -58,22 +58,24 @@ class CanvasManager{
         })
 
         document.getElementById("fewer").addEventListener('click', () => {
-            let current = document.getElementById("particleslider").value;
+            let current = parseInt(document.getElementById("particleslider").value, 10);
 
             current -= 50;
 
             if (current >= 0) {
                 document.getElementById("particleslider").value = current;
+                this.adjustAmountOfParticles(current);
             }
         })
 
         document.getElementById("more").addEventListener('click', () => {
-            let current = document.getElementById("particleslider").value;
+            let current = parseInt(document.getElementById("particleslider").value, 10);
 
             current += 50;
 
-            if (current <= 1000) {
+            if (current < 1000) {
                 document.getElementById("particleslider").value = current;
+                this.adjustAmountOfParticles(current);
             }
         })
     }
