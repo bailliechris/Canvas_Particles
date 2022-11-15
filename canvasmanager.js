@@ -44,6 +44,12 @@ class CanvasManager{
                 this.reviveAllDeadParticles();
             }
         })
+
+        document.addEventListener('touchstart', (event) => {
+            if (event.touches.length > 0) {
+                this.reviveAllDeadParticles();
+            }
+        })
     }
 
     reviveAllDeadParticles(){

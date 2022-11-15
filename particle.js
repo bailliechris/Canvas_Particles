@@ -57,11 +57,10 @@ class Particle{
                 this.sx = -this.sx+bounce;
             }
 
-            /*
             if(this.y <= 0){
                 this.y = 0 + (this.size.y*2);
                 this.sy = -this.sy+bounce;
-            }*/
+            }
     
         }
     }
