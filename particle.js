@@ -16,7 +16,7 @@ class Particle{
 
     draw(context) {
         if(this.life > 0) {
-            this.color[3] = (this.life/this.startLife) * 100;
+            this.color[3] = ((this.life/this.startLife) * 100) + "%";
             context.beginPath();
             // Circle!
             context.arc(this.x, this.y, this.size.x, 0, Math.PI*2, false);

@@ -1,6 +1,8 @@
 class CanvasManager{
     constructor(width, height, domID, color, amount){
         this.particleList = [];
+        this.colorListIndex = 0;
+        this.colorList = [[255, 42, 155], [0, 25, 152], [0, 253, 153], [252, 187, 0]]
         this.canvas = new CanvasArea(width, height, domID, color);
         this.createParticles(amount);
         this.inputListeners();
@@ -53,16 +55,25 @@ class CanvasManager{
     }
 
     reviveAllDeadParticles(x, y){
+
+        this.colorListIndex ++;
+
+        if (this.colorListIndex > this.colorList.length -1) {
+            this.colorListIndex = 0;
+        }
+
         this.particleList.forEach((particle) => {
             if(particle.life<=0) {
+                const life = this.random(25,100);
+
                 particle.revive(                
                     x,
                     y,
                     this.random(-50,50),
                     this.random(-8, -50),
                     {x:this.random(2,10), y:this.random(2,10)},
-                    this.random(25,100),
-                    [210, 60, 80, 1]
+                    life,
+                    [...this.colorList[this.colorListIndex], `${life}%`]
                 );
             }
         })
