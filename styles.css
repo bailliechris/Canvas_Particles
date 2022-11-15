@@ -15,11 +15,12 @@ footer {
     display: flex;
     justify-content: center;
     margin-top: 1em;
+    column-gap: 1em;
 }
 
-input[button] {
-    width: 2em;
-    height: 1em;
+input[type="button"] {
+    width: 3em;
+    height: 3em;
     border-radius: 2px;
     color: white;
 }

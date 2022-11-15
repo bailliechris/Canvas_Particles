@@ -47,7 +47,7 @@ class CanvasManager{
             }
         })
 
-        document.addEventListener('touchstart', (event) => {
+        document.getElementById("particles").addEventListener('touchstart', (event) => {
             if (event.touches.length > 0) {
                 this.reviveAllDeadParticles(event.touches[0].pageX, event.touches[0].pageY);
             }
